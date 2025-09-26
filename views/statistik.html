@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statistik Kependudukan</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Statistik Kependudukan</h2>
+    <p>Total Penduduk: {{.Total}}</p>
+    <canvas id="pieJK" width="400" height="400"></canvas>
+    <script>
+    var ctx = document.getElementById('pieJK').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Laki-laki', 'Perempuan'],
+            datasets: [{
+                data: [{{.Laki}}, {{.Perempuan}}],
+                backgroundColor: ['#36A2EB', '#FF6384'],
+            }]
+        }
+    });
+    </script>
+</body>
+</html>
